@@ -1,4 +1,4 @@
-# Copyright 2014-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-crypt/gkeys/gkeys-9999.ebuild,v 1.2 2014/12/25 20:58:50 dolsen Exp $
 
@@ -14,7 +14,7 @@ inherit distutils-r1 git-r3
 #EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/gentoo-keys.git"
 EGIT_REPO_URI="https://github.com/gentoo/gentoo-keys.git"
 
-DESCRIPTION="A Openpgp/gpg key management program and python libs"
+DESCRIPTION="Tool for generating OpenPGP/GPG keys using a specifications file"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Gentoo-keys"
 SRC_URI=""
 

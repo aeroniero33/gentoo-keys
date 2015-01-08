@@ -1,10 +1,10 @@
-# Copyright 2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header:  Exp $
 
 EAPI="5"
 
-DESCRIPTION="A Openpgp/gpg keyring of official Gentoo release media gpg keys"
+DESCRIPTION="An OpenPGP/GPG keyring of official Gentoo release media gpg keys"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Gentoo-keys"
 SRC_URI="http://dev.gentoo.org/~dolsen/releases/keyrings/${P}.tar.xz"
 
@@ -13,8 +13,6 @@ SLOT="0"
 IUSE=""
 
 KEYWORDS="alpha amd64 arm hppa ia64 ppc64 ppc sparc x86 ~arm64 ~x86-fbsd ~amd64-fbsd ~m68k ~mips ~s390 ~sh"
-
-#S="${WORKDIR}/${P}"
 
 DEPEND=""
 RDEPEND="

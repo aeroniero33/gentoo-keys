@@ -8,9 +8,9 @@ PYTHON_COMPAT=(python{2_7,3_3,3_4})
 
 inherit distutils-r1
 
-DESCRIPTION="An OpenPGP/GPG key management tool and python libs"
+DESCRIPTION="An OpenPGP/GPG key management tool for seed files and keyrings"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Gentoo-keys"
-SRC_URI="http://dev.gentoo.org/~dolsen/releases/gkeys/${P}.tar.bz2"
+SRC_URI="http://dev.gentoo.org/~dolsen/releases/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -38,17 +38,16 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	einfo "Fetching Gentoo Developer seed file..."
 	gkeys fetch-seed -C gentoo-devs || die "Unable to fetch seeds"
-	#gkeys install-key -C gentoo-devs || die "Unable to install developer keys"
-	einfo
 	einfo "This is experimental software."
 	einfo "The API's it installs should be considered unstable"
 	einfo "and are subject to change."
 	einfo
 	einfo "Please file any enhancement requests, or bugs"
 	einfo "at https://bugs.gentoo.org"
-	einfo "We are also on IRC @ #gentoo-keys of the freenode network"
+	einfo "We are also on IRC @ #gentoo-keys of the Freenode network"
 	einfo
-	ewarn "There may be some python 3 compatibility issues still."
-	ewarn "Please help debug/fix/report them in bugzilla."
+	ewarn "There may be some Python 3 compatibility issues still."
+	ewarn "Please help us debug, fix and report them in Bugzilla."
 }

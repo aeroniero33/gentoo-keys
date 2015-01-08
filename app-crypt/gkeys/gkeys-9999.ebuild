@@ -1,4 +1,4 @@
-# Copyright 2014-2015 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-crypt/gkeys/gkeys-9999.ebuild,v 1.4 2015/01/01 22:15:34 dolsen Exp $
 
@@ -14,7 +14,7 @@ inherit distutils-r1 git-r3
 #EGIT_REPO_URI="git://git.overlays.gentoo.org/proj/gentoo-keys.git"
 EGIT_REPO_URI="https://github.com/gentoo/gentoo-keys.git"
 
-DESCRIPTION="An OpenPGP/GPG key management tool and python libs"
+DESCRIPTION="An OpenPGP/GPG key management tool for seed files and keyrings"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Gentoo-keys"
 SRC_URI=""
 
@@ -54,15 +54,14 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	einfo
 	einfo "This is experimental software."
 	einfo "The API's it installs should be considered unstable"
 	einfo "and are subject to change."
 	einfo
 	einfo "Please file any enhancement requests, or bugs"
 	einfo "at https://bugs.gentoo.org"
-	einfo "We are also on IRC @ #gentoo-keys of the freenode network"
+	einfo "We are also on IRC @ #gentoo-keys of the Freenode network"
 	einfo
-	ewarn "There may be some python 3 compatibility issues still."
-	ewarn "Please help debug/fix/report them in bugzilla."
+	ewarn "There may be some Python 3 compatibility issues still."
+	ewarn "Please help us debug, fix and report them in Bugzilla."
 }
