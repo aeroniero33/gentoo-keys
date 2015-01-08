@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-python/ssl-fetch/ssl-fetch-0.2.ebuild,v 1.1 2014/05/29 16:19:28 dolsen Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-python/ssl-fetch/ssl-fetch-0.3.ebuild,v 1.1 2015/01/08 18:19:29 dolsen Exp $
 
 EAPI="5"
 
@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-KEYWORDS="~amd64 ~arm ~hppa ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x64-macos ~x86-macos"
 
 DEPEND=""
 
@@ -37,6 +37,6 @@ pkg_postinst() {
 	einfo
 	einfo "Please file any enhancement requests, or bugs"
 	einfo "at https://github.com/dol-sen/ssl-fetch/issues"
-	einfo "I am also on IRC @ #gentoo-portage, #gentoo-keys,... of the freenode network"
+	einfo "I am also on IRC @ #gentoo-portage, #gentoo-keys,... of the Freenode network"
 	einfo
 }
