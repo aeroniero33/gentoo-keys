@@ -1,6 +1,6 @@
 # Copyright 2014-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-crypt/gkeys/gkeys-9999.ebuild,v 1.4 2015/01/01 22:15:34 dolsen Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-crypt/gkeys/gkeys-0.1-r1.ebuild,v 1.1 2015/01/09 21:58:00 dolsen Exp $
 
 EAPI="5"
 
@@ -40,7 +40,6 @@ pkg_preinst() {
 pkg_postinst() {
 	einfo "Fetching Gentoo Developer seed file..."
 	gkeys fetch-seed -C gentoo-devs || die "Unable to fetch seeds"
-	gkeys install-key -C gentoo-devs || die "YOU miserable #$%#%##$%"
 	einfo "This is experimental software."
 	einfo "The API's it installs should be considered unstable"
 	einfo "and are subject to change."
