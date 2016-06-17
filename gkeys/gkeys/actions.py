@@ -94,7 +94,7 @@ class Actions(ActionBase):
         messages.append("")
         messages.append("Fetch operation completed")
         return (False not in success, messages)
-   
+
     def updateseed(self, args):
         '''Updates seeds of a selected file or all categories if no args are given'''
         self.logger.debug(_unicode("ACTIONS: updateseed; args: %s")
@@ -112,38 +112,41 @@ class Actions(ActionBase):
                 category_success, messages = self.updateseed(custom_args)
                 category_msgs.extend(messages)
             return (True, category_msgs)
-        print("Fetching seeds for %s category.\n" %args.category)
+        self.output(["", "Fetching seeds for %s category.\n" %args.category])
         success, old_gkeys = self.listseed(args)
         fetch_success, fetch_messages = self.fetchseed(args)
         self.seeds = None
         if fetch_success is not True:
             success = False
             messages = fetch_messages
-            print("Fetch failed.\n")
+            self.output(["", "Fetch failed.\n"])
         else:
-            print("Fetch succeeded.\n")
-            print("Installing or Refreshing keys for %s category." %args.category)
+            self.output(['',"Fetch succeeded.\n"])
+            self.output(['',"Installing or Refreshing keys for %s category." %args.category])
             install_success, install_messages = self.installkey(args)
             if install_success is not True:
-                print("Update failed.\n")
+                self.output(['',"Update failed.\n"])
                 success = False
             else:
-                print("Update succeeded.\n")
+                self.logger.info("Update succeeded.\n")
             messages = fetch_messages + [" Update operation:"] + [install_messages]
             success, new_gkeys = self.listseed(args)
-            added_gkeys, changed_gkeys  = self.seedhandler.compare_seeds(old_gkeys, new_gkeys)
-            print("Updated revoked GKeys:")
-            if changed_gkeys:
-                for gkey in changed_gkeys:
-                    self.output(['', changed_gkeys])
+            added_gkeys, changed_gkeys, removed_gkeys  = self.seedhandler.compare_seeds(old_gkeys, new_gkeys)
+            self.output(['', "Updated revoked GKeys:"])
+            for gkey in changed_gkeys:
+                self.output(['', changed_gkeys])
             else:
-                print("No GKeys were revoked") 
-            print("Added GKeys:")
-            if added_gkeys:
-                for gkey in added_gkeys:
-                    self.output(['', added_gkeys])
+                self.output(['',"No GKeys were revoked"])
+            self.output(['',"Added GKeys:"])
+            for gkey in added_gkeys:
+                self.output(['', added_gkeys])
             else:
-                print("No GKeys were added")
+                self.output(['',"No GKeys were added"])
+            self.output(['',"Removed GKeys:"])
+            for gkey in removed_gkeys:
+                self.output(['', added_gkeys])
+            else:
+                self.output(['',"No GKeys were removed"])
         return (success, messages)
 
     def addseed(self, args):
